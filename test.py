@@ -5,16 +5,21 @@ from telegram.ext import (
 )
 from telegram import BotCommand
 from datetime import datetime
-import openpyxl
+from dotenv import load_dotenv
 import os
+import openpyxl
 import asyncio
 import shutil
+
+# Загружаем переменные окружения из .env
+load_dotenv()
+
 
 # Состояния
 PROBLEM_TYPE, USER_DETAILS, OTHER_PROBLEM = range(3)
 
 # Конфигурация
-TOKEN = "7714787281:AAG19ViwvBLu462wG5F1zrg5Izf2CTsRJCY"
+TOKEN = os.getenv("TOKEN")
 
 # Файлы для записи и чтения
 EXCEL_FILE_WRITE = "complaints_for_write.xlsx"
